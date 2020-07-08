@@ -11,8 +11,7 @@ add_library(meshgit_lib SHARED
     quicksort.cpp
     quicksort.h
 )
-# For some reason find_package(Threads) isn't giving us pthread on Linux??
-target_link_libraries(meshgit_lib pthread)
+target_link_libraries(meshgit_lib Threads::Threads)
 
 #add_executable(meshgit meshgit.cpp)
 #target_link_libraries(meshgit meshgit_lib)

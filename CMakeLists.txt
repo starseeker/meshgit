@@ -3,13 +3,6 @@ cmake_minimum_required(VERSION 3.12)
 # project
 project(meshgit)
 
-unset(C_STANDARD_FLAGS)
-set(CMAKE_C_EXTENSIONS OFF)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(C_STANDARD_FLAGS "${CMAKE_C_FLAGS_DEFAULT} ${CMAKE_C${CMAKE_C_STANDARD}_STANDARD_COMPILE_OPTION} ${API_FLAGS}")
-string(STRIP "${C_STANDARD_FLAGS}" C_STANDARD_FLAGS)
-
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -34,6 +27,7 @@ find_package(GLUT REQUIRED)
 include_directories( ${OPENGL_INCLUDE_DIRS} )
 include_directories( ${GLUT_INCLUDE_DIRS} )
 
+set(CMAKE_HAVE_LIBC_PTHREAD FALSE CACHE BOOL "disable libc pthread" FORCE)
 find_package(Threads REQUIRED)
 
 # subdirectory

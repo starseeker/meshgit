@@ -43,7 +43,3 @@ target_link_libraries( common_lib ${CORELIBS} )
 add_executable(meshgit ${meshgit_srcs})
 target_link_libraries(meshgit common_lib meshgit_lib ${CORELIBS})
 
-if(CMAKE_GENERATOR STREQUAL "Xcode")
-    set_property(TARGET meshgit common_lib PROPERTY XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD c++11)
-    set_property(TARGET meshgit common_lib PROPERTY XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY libc++)
-endif(CMAKE_GENERATOR STREQUAL "Xcode")
