@@ -1,4 +1,4 @@
-add_library(meshgit_lib
+add_library(meshgit_lib SHARED
     binheap.h
     kdtree.cpp
     kdtree.h
@@ -11,11 +11,9 @@ add_library(meshgit_lib
     quicksort.cpp
     quicksort.h
 )
+# For some reason find_package(Threads) isn't giving us pthread on Linux??
+target_link_libraries(meshgit_lib pthread)
 
 #add_executable(meshgit meshgit.cpp)
 #target_link_libraries(meshgit meshgit_lib)
 
-if(CMAKE_GENERATOR STREQUAL "Xcode")
-    set_property(TARGET meshgit_lib PROPERTY XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD c++11)
-    set_property(TARGET meshgit_lib PROPERTY XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY libc++)
-endif(CMAKE_GENERATOR STREQUAL "Xcode")
